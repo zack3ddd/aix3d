@@ -23,17 +23,7 @@
   }
 
   .tfy-landing-wrapper * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  .tfy-landing-wrapper .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
-
-  /* Data readout */
-  .tfy-landing-wrapper .readout {
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--steel-bright);
-  }
+  .tfy-landing-wrapper .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
   /* ===== STATUS BAR ===== */
   .tfy-landing-wrapper .statusbar {
@@ -72,14 +62,14 @@
     background: rgba(255,255,255,0.6);
   }
   .tfy-landing-wrapper .hero h1 {
-    font-size: clamp(36px, 5.5vw, 68px);
+    font-size: clamp(36px, 5.5vw, 64px);
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1.15;
     letter-spacing: -0.01em;
     color: var(--ink);
     margin-bottom: 24px;
   }
-  .tfy-landing-wrapper .hero h1 .x { color: var(--orange); font-family: var(--sans); margin: 0 4px; }
+  .tfy-landing-wrapper .hero h1 .x { color: var(--orange); margin: 0 4px; }
   .tfy-landing-wrapper .hero-sub {
     font-size: clamp(18px, 2.2vw, 24px);
     font-weight: 700;
@@ -126,16 +116,16 @@
     font-size: 11px;
   }
   .tfy-landing-wrapper h2.title {
-    font-size: clamp(28px, 3.8vw, 42px);
+    font-size: clamp(28px, 3.8vw, 38px);
     font-weight: 900;
-    line-height: 1.2;
+    line-height: 1.25;
     letter-spacing: -0.01em;
     color: var(--ink);
     margin-bottom: 36px;
   }
 
   /* ===== ABOUT ===== */
-  .tfy-landing-wrapper .about-body { max-width: 100%; font-size: 16px; line-height: 1.85; color: #34424F; }
+  .tfy-landing-wrapper .about-body { max-width: 100%; font-size: 16px; line-height: 1.9; color: #34424F; }
   .tfy-landing-wrapper .about-body p { margin-bottom: 18px; }
   .tfy-landing-wrapper .about-body p:last-child { margin-bottom: 0; }
 
@@ -177,45 +167,46 @@
   .tfy-landing-wrapper .why-card::before { content: "// note"; position: absolute; top: -11px; left: 24px; background: var(--paper); padding: 0 8px; font-family: var(--mono); font-size: 12px; color: var(--steel-bright); }
   .tfy-landing-wrapper .why-lead { font-size: clamp(18px, 2.4vw, 24px); font-weight: 900; line-height: 1.5; margin-bottom: 20px; color: var(--ink); }
   .tfy-landing-wrapper .why-lead .o { color: var(--orange); }
-  .tfy-landing-wrapper .why-rest { font-size: 15px; line-height: 1.8; color: #34424F; }
+  .tfy-landing-wrapper .why-rest { font-size: 15px; line-height: 1.85; color: #34424F; }
   .tfy-landing-wrapper .why-rest b { color: var(--steel); font-weight: 700; }
 
-  /* ===== CURRICULUM (已徹底修復擠壓問題) ===== */
+  /* ===== CURRICULUM (100% 免疫擠壓的全新垂直流動結構) ===== */
   .tfy-landing-wrapper .curr-meta { font-family: var(--mono); font-size: 12px; color: var(--mute); letter-spacing: 0.06em; margin-bottom: 24px; }
   
   .tfy-landing-wrapper .layer {
-    display: grid;
-    grid-template-columns: 100px 1fr; /* 改為穩定的兩欄結構：左側標籤、右側內容 */
-    gap: 16px;
     padding: 24px 0;
     border-top: 1px solid var(--plate-line);
-    align-items: start;
   }
   .tfy-landing-wrapper .layer:last-of-type { border-bottom: 1px solid var(--plate-line); }
   
-  /* 左側章節與時間整合 */
-  .tfy-landing-wrapper .layer-meta {
+  /* 章節標頭：序號、時間、標題排在同一橫排，空間不夠會流暢換行，絕不壓縮 */
+  .tfy-landing-wrapper .layer-header {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
   }
-  .tfy-landing-wrapper .layer-z { font-family: var(--mono); font-size: 14px; color: var(--orange); font-weight: 700; }
-  .tfy-landing-wrapper .layer-time { font-family: var(--mono); font-size: 11px; color: var(--steel-bright); font-weight: 500; }
+  .tfy-landing-wrapper .layer-z { 
+    font-family: var(--mono); 
+    font-size: 13px; 
+    color: var(--orange); 
+    font-weight: 700; 
+    background: rgba(232, 115, 12, 0.08);
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .tfy-landing-wrapper .layer-time { font-family: var(--mono); font-size: 12px; color: var(--steel-bright); font-weight: 700; }
+  .tfy-landing-wrapper .layer-title { font-size: 19px; font-weight: 900; line-height: 1.3; color: var(--ink); flex-shrink: 0; }
   
-  /* 右側文字內容 */
-  .tfy-landing-wrapper .layer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .tfy-landing-wrapper .layer-title { font-size: 18px; font-weight: 900; line-height: 1.3; color: var(--ink); }
-  .tfy-landing-wrapper .layer-desc { font-size: 14.5px; line-height: 1.7; color: var(--ink-soft); }
+  /* 描述內文：完全獨立於下方，擁有 100% 的寬度自由延展 */
+  .tfy-landing-wrapper .layer-desc { font-size: 15px; line-height: 1.75; color: var(--ink-soft); width: 100%; }
 
   /* ===== WHAT YOU GET ===== */
   .tfy-landing-wrapper .get { background: var(--plate); }
   .tfy-landing-wrapper .get-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* 自動適應Teachify內頁寬度 */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1px; 
     background: var(--plate-line);
     border: 1px solid var(--plate-line);
@@ -225,11 +216,17 @@
   .tfy-landing-wrapper .get-txt { font-size: 15px; line-height: 1.5; color: #34424F; }
   .tfy-landing-wrapper .get-txt b { color: var(--ink); font-weight: 700; }
 
-  /* ===== WHO IT'S FOR ===== */
+  /* ===== WHO IT'S FOR (同步優化為垂直安全結構) ===== */
   .tfy-landing-wrapper .who-table { border-top: 2px solid var(--steel); }
-  .tfy-landing-wrapper .who-row { display: grid; grid-template-columns: 160px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--plate-line); align-items: baseline; }
-  .tfy-landing-wrapper .who-h { font-size: 16px; font-weight: 900; color: var(--steel); }
-  .tfy-landing-wrapper .who-p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; }
+  .tfy-landing-wrapper .who-row { 
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 0; 
+    border-bottom: 1px solid var(--plate-line); 
+  }
+  .tfy-landing-wrapper .who-h { font-size: 17px; font-weight: 900; color: var(--steel); }
+  .tfy-landing-wrapper .who-p { font-size: 15px; color: var(--ink-soft); line-height: 1.6; }
   .tfy-landing-wrapper .who-note { margin-top: 24px; font-family: var(--mono); font-size: 13px; color: var(--ink); background: var(--plate); border-left: 3px solid var(--orange); padding: 12px 16px; font-weight: 500; }
 
   /* ===== CTA ===== */
@@ -237,7 +234,7 @@
   .tfy-landing-wrapper .cta::before { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 32px 32px; }
   .tfy-landing-wrapper .cta-inner { position: relative; z-index: 1; }
   .tfy-landing-wrapper .cta-spec { font-family: var(--mono); font-size: 12px; color: var(--orange); letter-spacing: 0.1em; margin-bottom: 16px; font-weight: 700; }
-  .tfy-landing-wrapper .cta h2 { font-size: clamp(24px, 4vw, 42px); font-weight: 900; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 32px; }
+  .tfy-landing-wrapper .cta h2 { font-size: clamp(24px, 4vw, 38px); font-weight: 900; line-height: 1.25; letter-spacing: -0.01em; margin-bottom: 32px; }
   .tfy-landing-wrapper .cta h2 .o { color: var(--orange); }
   .tfy-landing-wrapper .cta-btn { display: inline-block; background: var(--orange); color: #fff; text-decoration: none; padding: 16px 48px; font-size: 16px; font-weight: 900; letter-spacing: 0.04em; transition: transform 0.2s ease, box-shadow 0.2s ease; }
   .tfy-landing-wrapper .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,115,12,0.4); }
@@ -247,13 +244,11 @@
     .tfy-landing-wrapper .wrap { padding: 0 16px; }
     .tfy-landing-wrapper section { padding: 48px 0; }
     .tfy-landing-wrapper .statusbar .wrap { padding: 10px 16px; flex-direction: column; gap: 6px; text-align: center; }
-    .tfy-landing-wrapper .layer { grid-template-columns: 1fr; gap: 8px; }
-    .tfy-landing-wrapper .layer-meta { flex-direction: row; gap: 12px; align-items: center; }
-    .tfy-landing-wrapper .who-row { grid-template-columns: 1fr; gap: 4px; padding: 16px 0; }
     .tfy-landing-wrapper .why-card { padding: 24px 20px; }
   }
 </style>
 
+<!-- STATUS BAR -->
 <div class="statusbar">
   <div class="wrap">
     <div class="left">
@@ -264,6 +259,7 @@
   </div>
 </div>
 
+<!-- HERO -->
 <header class="hero">
   <div class="wrap">
     <div class="hero-spec">針對 3D 列印的 AI 應用指南</div>
@@ -281,17 +277,19 @@
   </div>
 </header>
 
+<!-- ABOUT -->
 <section>
   <div class="wrap">
     <div class="sec-tab" data-no="01">ABOUT</div>
     <h2 class="title">關於這堂課</h2>
     <div class="about-body">
       <p>這門小課原本是一場針對我的學員的免費回饋直播，目的是想跟大家聊一聊我這陣子將 AI 加入創作工作流的心得。</p>
-      <p>但在準備的過程當中，我發現這些內容如果在一次直播裡面分享，內容會有點太多，全部講完又顯得過於冗長；加上如果沒有參與到直播，事後回看也不太方便。因此，我決定乾脆直接把它製作成預錄課，將內容精簡結構化，確保大家可以隨看隨用，以達得到更佳的學習效果！</p>
+      <p>但在準備的過程當中，我發現 these 內容如果在一次直播裡面分享，內容會有點太多，全部講完又顯得過於冗長；加上如果沒有參與到直播，事後回看也不太方便。因此，我決定乾脆直接把它製作成預錄課，將內容精簡結構化，確保大家可以隨看隨用，以達得到更佳的學習效果！</p>
     </div>
   </div>
 </section>
 
+<!-- PAIN -->
 <section class="pain">
   <div class="wrap">
     <div class="pain-head">
@@ -312,6 +310,7 @@
   </div>
 </section>
 
+<!-- WHY -->
 <section>
   <div class="wrap">
     <div class="sec-tab" data-no="03">WHY THIS COURSE</div>
@@ -323,70 +322,67 @@
   </div>
 </section>
 
+<!-- CURRICULUM (全新架構：章節、時間、標題整合在一橫排，內文在下方完全展開) -->
 <section>
   <div class="wrap">
     <div class="sec-tab" data-no="04">CURRICULUM</div>
     <h2 class="title" style="margin-bottom:16px;">課程章節</h2>
     <div class="curr-meta">TOTAL ≈ 120 MIN // 4 CHAPTERS + Q&amp;A</div>
     
+    <!-- CH 01 -->
     <div class="layer">
-      <div class="layer-meta">
+      <div class="layer-header">
         <span class="layer-z">CH.01</span>
         <span class="layer-time">15 MIN</span>
-      </div>
-      <div class="layer-content">
         <h3 class="layer-title">AI 時代的 3D 創作</h3>
-        <p class="layer-desc">AI 能幫什麼、不能幫什麼？AI 時代，Blender 還值得花時間學習嗎？</p>
       </div>
+      <p class="layer-desc">AI 能幫什麼、不能幫什麼？AI 時代，Blender 還值得花時間學習嗎？</p>
     </div>
     
+    <!-- CH 02 -->
     <div class="layer">
-      <div class="layer-meta">
+      <div class="layer-header">
         <span class="layer-z">CH.02</span>
         <span class="layer-time">20 MIN</span>
-      </div>
-      <div class="layer-content">
         <h3 class="layer-title">主流 AI 工具速覽</h3>
-        <p class="layer-desc">語言模型（Gemini、ChatGPT）與 3D 生成工具（Tripo + Hi3D）的實際使用感受，以及為什麼我建議不要買年費？</p>
       </div>
+      <p class="layer-desc">語言模型（Gemini、ChatGPT）與 3D 生成工具（Tripo + Hi3D）的實際使用感受，以及為什麼我建議不要買年費？</p>
     </div>
     
+    <!-- CH 03 -->
     <div class="layer">
-      <div class="layer-meta">
+      <div class="layer-header">
         <span class="layer-z">CH.03</span>
         <span class="layer-time">30 MIN</span>
-      </div>
-      <div class="layer-content">
         <h3 class="layer-title">AI 建模技巧</h3>
-        <p class="layer-desc">語言模型驗證 → 多視圖生成 → 多視圖生成技巧 → 如何精準生成想要的模型？分享各種 AI 指令技巧，以及使用網頁工具拆分的具體思路。</p>
       </div>
+      <p class="layer-desc">語言模型驗證 → 多視圖生成 → 多視圖生成技巧 → 如何精準生成想要的模型？分享各種 AI 指令技巧，以及使用網頁工具拆分的具體思路。</p>
     </div>
     
+    <!-- CH 04 -->
     <div class="layer">
-      <div class="layer-meta">
+      <div class="layer-header">
         <span class="layer-z">CH.04</span>
         <span class="layer-time">35 MIN</span>
-      </div>
-      <div class="layer-content">
         <h3 class="layer-title">掌控你的 AI 模型</h3>
-        <p class="layer-desc">學會如何在 Blender 裡自由拆件、切割、組合 AI 生成的模型。將大問題化小，拆分處理各項生成問題，讓 AI 真正成為你創作過程中的助手！</p>
       </div>
+      <p class="layer-desc">學會如何在 Blender 裡自由拆件、切割、組合 AI 生成的模型。將大問題化小，拆分處理各項生成問題，讓 AI 真正成為你創作過程中的助手！</p>
     </div>
     
+    <!-- Q&A -->
     <div class="layer">
-      <div class="layer-meta">
+      <div class="layer-header">
         <span class="layer-z">＋</span>
         <span class="layer-time">10 MIN</span>
-      </div>
-      <div class="layer-content">
         <h3 class="layer-title">Q&A 常見問題解答</h3>
-        <p class="layer-desc">整理學員最常問的問題，一次解答。</p>
       </div>
+      <p class="layer-desc">整理學員最常問的問題，一次解答。</p>
     </div>
 
   </div>
 </section>
 
+<!-- GET -->
 <section class="get">
   <div class="wrap">
     <div class="sec-tab" data-no="05">WHAT YOU GET</div>
@@ -402,6 +398,7 @@
   </div>
 </section>
 
+<!-- WHO -->
 <section>
   <div class="wrap">
     <div class="sec-tab" data-no="06">WHO IT'S FOR</div>
@@ -417,6 +414,7 @@
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta">
   <div class="wrap cta-inner">
     <div class="cta-spec">READY TO PRINT</div>
